@@ -1193,13 +1193,13 @@ public class ContainerLaunch implements Callable<Integer> {
     }
 
     public UnixShellScriptBuilder() {
-      line("#!/bin/bash");
+      line("#!/usr/bin/env bash");
       line();
     }
 
     @Override
     public void command(List<String> command) {
-      line("exec /bin/bash -c \"", StringUtils.join(" ", command), "\"");
+      line("exec sh -c \"", StringUtils.join(" ", command), "\"");
     }
 
     @Override

@@ -302,7 +302,7 @@ public class TestNodeManagerShutdown {
       fileWriter.println("@echo " + cId + ">> " + processStartFile);
       fileWriter.println("@pause");
     } else {
-      fileWriter.write("#!/bin/bash\n\n");
+      fileWriter.write("#!/usr/bin/env bash\n\n");
       fileWriter.write("echo \"Running testscript for delayed kill\"\n");
       fileWriter.write("hello=\"Got SIGTERM\"\n");
       fileWriter.write("umask 0\n");

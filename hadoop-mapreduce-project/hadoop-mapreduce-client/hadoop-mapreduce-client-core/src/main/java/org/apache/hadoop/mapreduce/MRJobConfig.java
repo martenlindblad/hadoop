@@ -852,7 +852,7 @@ public interface MRJobConfig {
   public static final String MAPRED_ADMIN_USER_SHELL =
       "mapreduce.admin.user.shell";
 
-  public static final String DEFAULT_SHELL = "/bin/bash";
+  public static final String DEFAULT_SHELL = "/usr/bin/env bash";
 
   public static final String MAPRED_ADMIN_USER_ENV =
       "mapreduce.admin.user.env";

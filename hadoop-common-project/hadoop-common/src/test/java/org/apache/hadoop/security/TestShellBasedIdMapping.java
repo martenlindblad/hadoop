@@ -99,8 +99,8 @@ public class TestShellBasedIdMapping {
     BiMap<Integer, String> gMap = HashBiMap.create();
     
     String GET_ALL_USERS_CMD =
-        "echo \"atm:x:1000:1000:Aaron T. Myers,,,:/home/atm:/bin/bash\n"
-        + "hdfs:x:11501:10787:Grid Distributed File System:/home/hdfs:/bin/bash\""
+        "echo \"atm:x:1000:1000:Aaron T. Myers,,,:/home/atm:/bin/sh\n"
+        + "hdfs:x:11501:10787:Grid Distributed File System:/home/hdfs:/bin/sh\""
         + " | cut -d: -f1,3";
     
     String GET_ALL_GROUPS_CMD = "echo \"hdfs:*:11501:hrt_hdfs\n"
@@ -208,11 +208,11 @@ public class TestShellBasedIdMapping {
   @Test
   public void testDuplicates() throws IOException {
     assumeTrue(!Shell.WINDOWS);
-    String GET_ALL_USERS_CMD = "echo \"root:x:0:0:root:/root:/bin/bash\n"
-        + "hdfs:x:11501:10787:Grid Distributed File System:/home/hdfs:/bin/bash\n"
-        + "hdfs:x:11502:10788:Grid Distributed File System:/home/hdfs:/bin/bash\n"
-        + "hdfs1:x:11501:10787:Grid Distributed File System:/home/hdfs:/bin/bash\n"
-        + "hdfs2:x:11502:10787:Grid Distributed File System:/home/hdfs:/bin/bash\n"
+    String GET_ALL_USERS_CMD = "echo \"root:x:0:0:root:/root:/bin/sh\n"
+        + "hdfs:x:11501:10787:Grid Distributed File System:/home/hdfs:/bin/sh\n"
+        + "hdfs:x:11502:10788:Grid Distributed File System:/home/hdfs:/bin/sh\n"
+        + "hdfs1:x:11501:10787:Grid Distributed File System:/home/hdfs:/bin/sh\n"
+        + "hdfs2:x:11502:10787:Grid Distributed File System:/home/hdfs:/bin/sh\n"
         + "bin:x:2:2:bin:/bin:/bin/sh\n"
         + "bin:x:1:1:bin:/bin:/sbin/nologin\n"
         + "daemon:x:1:1:daemon:/usr/sbin:/bin/sh\n"
@@ -251,10 +251,10 @@ public class TestShellBasedIdMapping {
     String GET_ALL_USERS_CMD = "echo \""
         + "nfsnobody:x:4294967294:4294967294:Anonymous NFS User:/var/lib/nfs:/sbin/nologin\n"
         + "nfsnobody1:x:4294967295:4294967295:Anonymous NFS User:/var/lib/nfs1:/sbin/nologin\n"
-        + "maxint:x:2147483647:2147483647:Grid Distributed File System:/home/maxint:/bin/bash\n"
-        + "minint:x:2147483648:2147483648:Grid Distributed File System:/home/minint:/bin/bash\n"
+        + "maxint:x:2147483647:2147483647:Grid Distributed File System:/home/maxint:/bin/sh\n"
+        + "minint:x:2147483648:2147483648:Grid Distributed File System:/home/minint:/bin/sh\n"
         + "archivebackup:*:1031:4294967294:Archive Backup:/home/users/archivebackup:/bin/sh\n"
-        + "hdfs:x:11501:10787:Grid Distributed File System:/home/hdfs:/bin/bash\n"
+        + "hdfs:x:11501:10787:Grid Distributed File System:/home/hdfs:/bin/sh\n"
         + "daemon:x:2:2:daemon:/sbin:/sbin/nologin\""
         + " | cut -d: -f1,3";
     String GET_ALL_GROUPS_CMD = "echo \""

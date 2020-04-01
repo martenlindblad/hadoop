@@ -169,10 +169,10 @@ case $startStop in
     if [ "true" = "$starting_secure_dn" ]; then
       echo "ulimit -a for secure datanode user $HADOOP_SECURE_DN_USER" >> $log
       # capture the ulimit info for the appropriate user
-      su --shell=/bin/bash $HADOOP_SECURE_DN_USER -c 'ulimit -a' >> $log 2>&1
+      su --shell=/bin/sh $HADOOP_SECURE_DN_USER -c 'ulimit -a' >> $log 2>&1
     elif [ "true" = "$starting_privileged_nfs" ]; then
         echo "ulimit -a for privileged nfs user $HADOOP_PRIVILEGED_NFS_USER" >> $log
-        su --shell=/bin/bash $HADOOP_PRIVILEGED_NFS_USER -c 'ulimit -a' >> $log 2>&1
+        su --shell=/bin/sh $HADOOP_PRIVILEGED_NFS_USER -c 'ulimit -a' >> $log 2>&1
     else
       echo "ulimit -a for user $USER" >> $log
       ulimit -a >> $log 2>&1

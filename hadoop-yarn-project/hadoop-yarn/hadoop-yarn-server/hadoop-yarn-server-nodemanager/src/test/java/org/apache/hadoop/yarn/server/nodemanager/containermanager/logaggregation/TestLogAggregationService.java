@@ -1099,7 +1099,7 @@ public class TestLogAggregationService extends BaseContainerManagerTest {
     localResources.put(destinationFile, rsrc_alpha);
     containerLaunchContext.setLocalResources(localResources);
     List<String> commands = new ArrayList<String>();
-    commands.add("/bin/bash");
+    commands.add("bash");
     commands.add(scriptFile.getAbsolutePath());
     containerLaunchContext.setCommands(commands);
 

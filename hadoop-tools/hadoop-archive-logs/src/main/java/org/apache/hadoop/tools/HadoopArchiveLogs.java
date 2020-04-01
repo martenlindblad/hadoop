@@ -434,7 +434,7 @@ public class HadoopArchiveLogs implements Tool {
 
   /*
   The generated script looks like this:
-  #!/bin/bash
+  #!/usr/bin/env bash
   set -e
   set -x
   if [ "$YARN_SHELL_ID" == "1" ]; then
@@ -465,7 +465,7 @@ public class HadoopArchiveLogs implements Tool {
     FileWriterWithEncoding fw = null;
     try {
       fw = new FileWriterWithEncoding(localScript, "UTF-8");
-      fw.write("#!/bin/bash\nset -e\nset -x\n");
+      fw.write("#!/usr/bin/env bash\nset -e\nset -x\n");
       int containerCount = 1;
       for (AppInfo app : eligibleApplications) {
         fw.write("if [ \"$YARN_SHELL_ID\" == \"");

@@ -269,7 +269,7 @@ public class TestHadoopArchiveLogs {
     String script = IOUtils.toString(localScript.toURI());
     String[] lines = script.split("\n");
     Assert.assertEquals(16, lines.length);
-    Assert.assertEquals("#!/bin/bash", lines[0]);
+    Assert.assertEquals("#!/usr/bin/env bash", lines[0]);
     Assert.assertEquals("set -e", lines[1]);
     Assert.assertEquals("set -x", lines[2]);
     Assert.assertEquals("if [ \"$YARN_SHELL_ID\" == \"1\" ]; then", lines[3]);
